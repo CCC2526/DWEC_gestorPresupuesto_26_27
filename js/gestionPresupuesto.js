@@ -77,8 +77,7 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
 
     this.anyadirEtiquetas(...etiquetas);
 
-    this.borrarEtiquetas = function(...etiquetas)
-    {
+    this.borrarEtiquetas = function(...etiquetas) {
         this.etiquetas = this.etiquetas.filter(
         etiqueta => !etiquetasBorrar.includes(etiqueta)
         )
@@ -114,9 +113,7 @@ function calcularTotalGastos(){
 }
 
 function calcularBalance(){
-    let totalGastos = calcularTotalGastos();
-
-    return presupuesto - totalGastos;
+    return presupuesto - calcularTotalGastos();
 }
 
 // NO MODIFICAR A PARTIR DE AQUÍ: exportación de funciones y objetos creados para poder ejecutar los tests.
