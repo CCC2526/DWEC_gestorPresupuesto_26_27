@@ -60,9 +60,20 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
         }
     }
 
+    this.actualizarFecha = function(nuevaFecha){
+        if (nuevaFecha !== undefined || isNaN(nuevaFecha) == false)
+        {
+            this.fecha = nuevaFecha;
+        }
+    }
+
     this.anyadirEtiquetas = function(...nuevasEtiquetas) {
-        this.etiquetas.push(...nuevasEtiquetas);
-    };
+    for (let etiqueta of nuevasEtiquetas) {
+        if (!this.etiquetas.includes(etiqueta)) {
+            this.etiquetas.push(etiqueta);
+        }
+    }
+}
 
     this.anyadirEtiquetas(...etiquetas);
 }
