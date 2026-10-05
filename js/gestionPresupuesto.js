@@ -45,7 +45,7 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
     }
     
     this.etiquetas = [];
-    
+
     this.mostrarGasto = function(){
         return `Gasto correspondiente a ${descripcion} con valor ${valor} €`
     }
@@ -59,6 +59,12 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
             this.valor = nuevoValor;
         }
     }
+
+    this.anyadirEtiquetas = function(...nuevasEtiquetas) {
+        this.etiquetas.push(...nuevasEtiquetas);
+    };
+
+    this.anyadirEtiquetas(...etiquetas);
 }
  function listarGastos(){
     return gastos;
