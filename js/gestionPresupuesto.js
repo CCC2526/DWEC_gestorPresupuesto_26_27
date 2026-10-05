@@ -35,7 +35,7 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
         this.valor = 0;
     }
 
-    if (fecha == undefined || isNaN(fecha) == true)
+    if (isNaN(Date.parse(fecha)))
     {
         this.fecha = Date.now();
     }
@@ -56,7 +56,7 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
         texto += `Etiquetas:\n`;
 
         for (let etiqueta of this.etiquetas) {
-            texto += ` - ${etiqueta}\n`;
+            texto += `- ${etiqueta}\n`;
         }
 
         return texto;
@@ -73,9 +73,9 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
     }
 
     this.actualizarFecha = function(nuevaFecha){
-        if (nuevaFecha !== undefined || isNaN(nuevaFecha) == false)
+        if (isNaN(Date.parse(nuevaFecha)) === false)
         {
-            this.fecha = nuevaFecha;
+            this.fecha = Date.parse(nuevaFecha);
         }
     }
 
@@ -91,7 +91,7 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
 
     this.borrarEtiquetas = function(...etiquetas) {
         this.etiquetas = this.etiquetas.filter(
-        etiqueta => !etiquetasBorrar.includes(etiqueta)
+        etiqueta => !etiquetas.includes(etiqueta)
         )
     }
 }
