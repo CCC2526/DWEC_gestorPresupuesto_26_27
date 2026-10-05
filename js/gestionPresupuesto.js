@@ -71,11 +71,18 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
     for (let etiqueta of nuevasEtiquetas) {
         if (!this.etiquetas.includes(etiqueta)) {
             this.etiquetas.push(etiqueta);
+            }
         }
     }
-}
 
     this.anyadirEtiquetas(...etiquetas);
+
+    this.borrarEtiquetas = function(...etiquetas)
+    {
+        this.etiquetas = this.etiquetas.filter(
+        etiqueta => !etiquetasBorrar.includes(etiqueta)
+        )
+    }
 }
 
 function listarGastos(){
