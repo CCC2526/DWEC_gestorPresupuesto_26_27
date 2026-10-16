@@ -167,7 +167,7 @@ function filtrarGastos(filtros) {
         }
 
         if (filtros.descripcionContiene !== undefined &&
-            gasto.descripcion.toLowerCase() !== filtros.descripcionContiene.toLowerCase()) {
+            !gasto.descripcion.toLowerCase().includes(filtros.descripcionContiene.toLowerCase())) {
             return false;
         }
         
@@ -179,13 +179,42 @@ function filtrarGastos(filtros) {
             return false;
         }
 
+        return true
     }
     )
 }
 
-function agruparGastos() {
 
+function agruparGastos(periodo = "mes", etiquetas = [], fechaDesde, fechaHasta) {
+    let filtros = {};
+
+    if (etiquetas.length > 0) {
+        filtros.etiquetasTiene = etiquetas;
+    }
+
+    if (fechaDesde !== undefined) {
+        filtros.fechaDesde = fechaDesde;
+    }
+
+    if (fechaHasta !== undefined) {
+        filtros.fechaHasta = fechaHasta;
+    }
+
+    let gastosFiltrados = filtrarGastos(filtros);
+
+    return gastosFiltrados.reduce(function(acc, gasto) {
+        let clave = gasto.obtenerPeriodoAgrupacion(periodo);
+
+        if (acc[clave] === undefined) {
+            acc[clave] = 0;
+        }
+
+        acc[clave] += gasto.valor;
+
+        return acc;
+    }, {});
 }
+
 
 // NO MODIFICAR A PARTIR DE AQUÍ: exportación de funciones y objetos creados para poder ejecutar los tests.
 // Las funciones y objetos deben tener los nombres que se indican en el enunciado
