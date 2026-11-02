@@ -64,7 +64,10 @@ function mostrarGastosAgrupadosWeb(idElemento, agrup, periodo) {
     h1.textContent = mensaje;
     divAgrupacion.append(h1);
 
+    
     const divAgrupacionDato = document.createElement('div');
     divAgrupacionDato.setAttribute('class', 'agrupacion-dato');
     divAgrupacion.append(divAgrupacionDato);
+
+
 }
