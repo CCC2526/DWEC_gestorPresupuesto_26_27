@@ -38,3 +38,33 @@ function mostrarGastoWeb(idElemento, gasto) {
         divGastoEtiquetas.append(spanGastoEtiquetas);
     }
 }
+
+function mostrarGastosAgrupadosWeb(idElemento, agrup, periodo) {
+    const elemento = document.getElementById(idElemento);
+
+    const divAgrupacion = document.createElement('div');
+    divAgrupacion.setAttribute('class', 'agrupacion');
+    elemento.append(divAgrupacion);
+
+    const mensaje = "Gastos agrupados por "
+    if (periodo === "dia")
+    {
+        mensaje + "día";
+    }
+    else if (periodo === "anyo")
+    {
+        mensaje + "año";
+    }
+    else
+    {
+        mensaje + periodo;
+    }
+
+    const h1 = document.createElement('h1');
+    h1.textContent = mensaje;
+    divAgrupacion.append(h1);
+
+    const divAgrupacionDato = document.createElement('div');
+    divAgrupacionDato.setAttribute('class', 'agrupacion-dato');
+    divAgrupacion.append(divAgrupacionDato);
+}
