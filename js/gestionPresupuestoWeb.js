@@ -81,10 +81,10 @@ function mostrarGastosAgrupadosWeb(idElemento, agrup, periodo) {
         spanAgrupacionValor.textContent = valor;
         divAgrupacionDato.append(spanAgrupacionValor);
     }
+}
 
-    export{
+export {
         mostrarDatoEnId,
         mostrarGastoWeb,
         mostrarGastosAgrupadosWeb
     }
-}
