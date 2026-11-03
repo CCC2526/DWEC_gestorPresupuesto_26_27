@@ -64,10 +64,27 @@ function mostrarGastosAgrupadosWeb(idElemento, agrup, periodo) {
     h1.textContent = mensaje;
     divAgrupacion.append(h1);
 
-    
-    const divAgrupacionDato = document.createElement('div');
-    divAgrupacionDato.setAttribute('class', 'agrupacion-dato');
-    divAgrupacion.append(divAgrupacionDato);
+    for (let [clave, valor] of Object.entries(agrup))
+    {
+        const divAgrupacionDato = document.createElement('div');
+        divAgrupacionDato.setAttribute('class', 'agrupacion-dato');
+        divAgrupacion.append(divAgrupacionDato);
 
+        const spanAgrupacionClave = document.createElement('span');
+        spanAgrupacionClave.setAttribute('class', 'agrupacion-dato-clave')
+        spanAgrupacionClave.textContent = clave;
+        divAgrupacionDato.append(spanAgrupacionClave);
 
+        
+        const spanAgrupacionValor = document.createElement('span');
+        spanAgrupacionValor.setAttribute('class', 'agrupacion-dato-valor')
+        spanAgrupacionValor.textContent = valor;
+        divAgrupacionDato.append(spanAgrupacionValor);
+    }
+
+    export{
+        mostrarDatoEnId,
+        mostrarGastoWeb,
+        mostrarGastosAgrupadosWeb
+    }
 }
