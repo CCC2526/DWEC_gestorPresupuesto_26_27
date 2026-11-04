@@ -46,3 +46,21 @@ let filtro1 = {
  {
     gpWeb.mostrarGastoWeb('listado-gastos-filtrado-2', gasto)
  }
+
+ let filtro3 = {
+    valorMinimo: 200,
+    etiquetasTiene: ['seguros']
+ }
+  for (let gasto of gp.filtrarGastos(filtro3))
+ {
+    gpWeb.mostrarGastoWeb('listado-gastos-filtrado-3', gasto)
+ }
+
+ let filtro4 = {
+    valorMaximo: 50,
+    etiquetasTiene: ['comida', 'transporte']
+ }
+  for (let gasto of gp.filtrarGastos(filtro4))
+ {
+    gpWeb.mostrarGastoWeb('listado-gastos-filtrado-4', gasto)
+ }
