@@ -64,3 +64,11 @@ let filtro1 = {
  {
     gpWeb.mostrarGastoWeb('listado-gastos-filtrado-4', gasto)
  }
+
+ gpWeb.mostrarGastosAgrupadosWeb('agrupacion-dia', gp.agruparGastos('dia'), 'dia')
+
+ 
+ gpWeb.mostrarGastosAgrupadosWeb('agrupacion-mes', gp.agruparGastos('mes'), 'mes')
+
+ 
+ gpWeb.mostrarGastosAgrupadosWeb('agrupacion-anyo', gp.agruparGastos('anyo'), 'anyo')

@@ -46,18 +46,18 @@ function mostrarGastosAgrupadosWeb(idElemento, agrup, periodo) {
     divAgrupacion.setAttribute('class', 'agrupacion');
     elemento.append(divAgrupacion);
 
-    const mensaje = "Gastos agrupados por "
+    let mensaje = ""
     if (periodo === "dia")
     {
-        mensaje + "día";
+        mensaje = "Gastos agrupados por día";
     }
     else if (periodo === "anyo")
     {
-        mensaje + "año";
+        mensaje = "Gastos agrupados por año";
     }
     else
     {
-        mensaje + periodo;
+        mensaje = "Gastos agrupados por mes";
     }
 
     const h1 = document.createElement('h1');
@@ -72,7 +72,7 @@ function mostrarGastosAgrupadosWeb(idElemento, agrup, periodo) {
 
         const spanAgrupacionClave = document.createElement('span');
         spanAgrupacionClave.setAttribute('class', 'agrupacion-dato-clave')
-        spanAgrupacionClave.textContent = clave;
+        spanAgrupacionClave.textContent = clave + ": ";
         divAgrupacionDato.append(spanAgrupacionClave);
 
         
