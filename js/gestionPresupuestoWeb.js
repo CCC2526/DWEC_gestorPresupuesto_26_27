@@ -89,9 +89,22 @@ function repintar(){
     mostrarDatoEnId("gastos-totales", gp.calcularTotalGastos());
     mostrarDatoEnId("balance-total", gp.calcularBalance());
     document.getElementById("listado-gastos-completo").innerHTML = "";
-    mostrarGastoWeb("listado-gastos-completo", gp.listarGastos);
+    for(let gasto of gp.listarGastos())
+    {
+        mostrarGastoWeb("listado-gastos-completo", gasto);
+    }
 }
 
+function actualizarPresupuestoWeb(){
+    let resultado = prompt("Introduce el presupuesto:");
+    let nuevoPresupuesto = Number(resultado);
+    gp.actualizarPresupuesto(nuevoPresupuesto);
+    repintar();
+}
+
+let botonActualizar = document.getElementById('actualizarpresupuesto');
+
+botonActualizar.addEventListener('click', actualizarPresupuestoWeb);
 
 export {
         mostrarDatoEnId,
